@@ -1,0 +1,20 @@
+.kitten-item {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .kitten-details {
+    position: absolute;
+    top: 0;
+    left: 110px; /* Adjust as needed */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .kitten-item:hover .kitten-details {
+    display: block;
+  }

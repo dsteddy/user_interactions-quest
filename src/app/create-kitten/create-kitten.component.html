@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newKitten">
+
+    <h4>Create Kitten</h4>
+
+    <fieldset>
+        <label for="kitten-name">Name: </label>
+        <input id="kitten-name" type="text" name="kitten-name" formControlName="name">
+    </fieldset>
+
+    <div *ngIf="newKitten.controls['name']?.invalid && (newKitten.controls['name']?.dirty || newKitten.controls['name']?.touched)">
+        <span *ngFor="let error of objectKeys(newKitten.controls['name']?.errors || {})">
+            {{ getErrorMessage('Name', error) }}
+        </span>
+   </div>
+
+    <fieldset>
+        <label for="kitten-breed">Breed: </label>
+        <input id="kitten-breed" type="text" name="kitten-breed" formControlName="breed">
+    </fieldset>
+
+    <div *ngIf="newKitten.controls['breed']?.invalid && (newKitten.controls['breed']?.dirty || newKitten.controls['breed']?.touched)">
+        <span *ngFor="let error of objectKeys(newKitten.controls['breed']?.errors || {})">
+            {{ getErrorMessage('Breed', error) }}
+        </span>
+   </div>
+
+    <fieldset>
+        <label for="kitten-birthdate">Birth Date: </label>
+        <input id="kitten-birthdate" type="date" name="kitten-birthdate" formControName="birthdate">
+    </fieldset>
+
+    <div *ngIf="newKitten.controls['birthdate']?.invalid && (newKitten.controls['birthdate']?.dirty || newKitten.controls['birthdate']?.touched)">
+        <span *ngFor="let error of objectKeys(newKitten.controls['birthdate']?.errors || {})">
+            {{ getErrorMessage('Birth Date', error) }}
+        </span>
+   </div>
+
+    <fieldset>
+        <label for="kitten-photo">Photo: </label>
+        <input id="kitten-photo" type="text" name="kitten-photo" formControlName="photo">
+    </fieldset>
+
+    <fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Create Kitten</button>
+    </fieldset>
+
+</form>
+

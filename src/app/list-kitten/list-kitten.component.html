@@ -1,0 +1,23 @@
+<h3>Kitten List: </h3>
+
+<div *ngFor="let kitten of kittenList; let i = index" class="kitten-item">
+    <img [src]="kitten.photo" height="100px" width="100px"
+        (mouseenter)="showDetails[i] = true"
+        (mouseleave)="showDetails[i] = false">
+    <div *ngIf="showDetails[i]" class="kitten-details">
+        <div>{{ kitten.name }}</div>
+        <div>{{ kitten.breed }}</div>
+    </div>
+    <button (click)="adoptKitten(i)">Adopt</button>
+</div>
+
+<app-create-kitten
+    (sendKittenToList)="onReceiveKitten($event)">
+</app-create-kitten>
+
+<div>
+    <h3>My Kittens: </h3>
+    <div *ngFor="let kitten of userKittens">
+        <app-user-kitten [kitten]="kitten"></app-user-kitten>
+    </div>
+</div>
